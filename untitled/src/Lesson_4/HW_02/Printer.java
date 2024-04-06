@@ -10,55 +10,38 @@ getElements() - возвращает все элементы в очереди
  */
 import java.util.LinkedList;
 
+class MyQueueInt {
+    private LinkedList<Integer> elements = new LinkedList<>();
 
-class MyQueue<T> {
-    // Напишите свое решение ниже
-    public MyQueue() {
-
-    }
-    private LinkedList elements = new LinkedList<>();
-    public MyQueue(LinkedList<T> elements) {
-        this.elements = elements;
-    }
-    public void enqueue(T element){
-        // Напишите свое решение ниже
+    public void enqueue(int element) {
         elements.add(element);
     }
 
-    public T dequeue(){
-        // Напишите свое решение ниже
-        T first = (T) elements.getFirst();
-        elements.removeFirst();
-        return first;
+    public int dequeue() {
+        return elements.removeFirst();
     }
 
-    public T first(){
-        // Напишите свое решение ниже
-        T first = (T) elements.getFirst();
-        return first;
+    public int first() {
+        return elements.getFirst();
     }
 
-    public LinkedList<T> getElements() {
-        // Напишите свое решение ниже
+    public LinkedList<Integer> getElements() {
         return elements;
-    }
-    public void setElements(LinkedList<T> elements) {
-        this.elements = elements;
     }
 }
 
 // Не удаляйте этот класс - он нужен для вывода результатов на экран и проверки
 public class Printer {
     public static void main(String[] args) {
-        MyQueue<Integer> queue;
-        queue = new MyQueue<>();
+        MyQueueInt queue;
+        queue = new MyQueueInt();
 
         if (args.length == 0) {
             // При отправке кода на Выполнение, вы можете варьировать эти параметры
             queue.enqueue(1);
-            queue.enqueue(45);
-            queue.enqueue(2);
-            queue.enqueue(6);
+            queue.enqueue(10);
+            queue.enqueue(15);
+            queue.enqueue(5);
         } else {
             queue.enqueue(Integer.parseInt(args[0]));
             queue.enqueue(Integer.parseInt(args[1]));
